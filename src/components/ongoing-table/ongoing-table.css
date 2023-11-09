@@ -1,0 +1,58 @@
+.table {
+  padding: 0 25px;
+  margin: 0;
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) 1fr 1fr max-content min-content min-content;
+  gap: 20px;
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
+  align-items: center;
+}
+
+.table__header {
+  position: relative;
+  font-weight: 500;
+  color: white;
+  font-size: 20px;
+  margin: 0 0 20px;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color .3s;
+  border-radius: 5px;
+}
+
+.table__header:hover {
+  background-color: rgba(255, 255, 255, .3);
+}
+
+.table__header_t_count {
+  grid-column: span 2;
+}
+
+.table__header_sort::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-image: url(../../images/triangle-filled.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  top: 100%;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+.table__header_sort_r::after {
+  background-image: url(../../images/triangle-filled-r.svg);
+}

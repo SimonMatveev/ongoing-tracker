@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+# Приложение `Ongoing Tracker`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Описание
+Репозиторий для приложения `Ongoing Tracker`. Приложение позволяет удобно отслеживать и оценивать сезонные аниме (далее - онгоинги). Приложение использует API сайта **Shikimori.one**. После авторизации с помощью аккаунта Shikimori предоставляет следующие функции:
 
-## Available Scripts
+<details>
+  <summary><b>Общий вид сайта</b></summary>
+  
+  <img src='./src/images/readme/Screenshot_1.png' width='800'>
+</details>
+<br>
 
-In the project directory, you can run:
+1. Отслеживание онгоингов в реальном времени в виде наглядной таблицы - зелёным отображаются просмотренные эпизоды, серым - вышедшие, но еще не просмотренные, без цвета - общее количество серий. В случае, если общее количество серий пока неизвестно, отображаются только уже вышедшие эпизоды.
 
-### `npm start`
+2. Отмечание просмотренных серий (кнопка '+'). 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Выставление общей оценки онгоингу (нажатием на оценку).
+<br><br><img src='./src/images/readme/Screenshot_2.png' width='400'>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+4. Выставление оценок каждой из серий. После сохранения у соответсвующего онгоинга автоматически формируется комментарий с выставленными оценками. Для аниме длиннее 25 эпизодов появляется горизонтальная прокрутка серий.
+<br><br>
+<img src='./src/images/readme/Screenshot_3.png' height='100'>
+<img src='./src/images/readme/Screenshot_4.png' height='100'><br><br>
+Для аниме длиннее 25 эпизодов появляется горизонтальная прокрутка серий.
+<br><br>
+<img src='./src/images/readme/Screenshot_5.png' width='800'>
 
-### `npm test`
+5. По нажатию на название осуществляется редирект на страницу онгоинга на Shikimori.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+6. Реализована сортировка по всем столбцам, настройки сохраняются в localStorage. 
 
-### `npm run build`
+## Стек технологий
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+HTML, JS, CSS, TS, React.
+  
+## Запуск проекта 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Так как приложение авторизует пользователя через OAuth. Требуется настроить соответствующее приложение на сайте Shikimori. По умолчанию трекер подключен к соответсвующему приложению, осуществляющему редирект на **localhost:3000**, но для использования в продакшне необходимо создать новое приложение по [адресу](https://shikimori.one/oauth/applications) и указать в настройках Redirect URI как **url_сайта/redirect**, в скоупе отметить **user_rates**. После этого в файле src/utils/constants.ts следует указать соответствующие **CLIENT_ID**, **CLIENT_SECRET**, **REDIRECT_URI** и **USER_AGENT**.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Для обоих частей приложения:
+```
+npm install
+npm run start - dev сервер
+npm run build - билд для продакшна
+```
 
-### `npm run eject`
+## Планы на будущее
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [ ] Рефакторинг разметки для адаптивности.
+- [ ] Страница профиля.
+- [ ] Страница со всеми онгоингами сезона, с возможностью добавлять их в раздел 'Смотрю'.
