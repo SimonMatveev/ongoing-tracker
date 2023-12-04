@@ -31,7 +31,7 @@
 
 ## Стек технологий
 
-HTML, JS, CSS, TS, React.
+HTML, TypeScript, CSS, React.
   
 ## Запуск проекта 
 
@@ -39,7 +39,7 @@ HTML, JS, CSS, TS, React.
 
 2. Для обоих частей приложения:
 ```
-npm install
+npm ci
 npm run start - dev сервер
 npm run build - билд для продакшна
 ```
